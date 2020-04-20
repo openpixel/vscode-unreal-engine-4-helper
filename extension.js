@@ -1,7 +1,7 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 const vscode = require('vscode');
-const build = require('./src/builder');
+const build = require('./src/builder').build;
 const propertySpecifiers = require('./src/property').specifiers;
 const structSpecifiers = require('./src/struct').specifiers;
 const interfaceSpecifiers = require('./src/interface').specifiers;
@@ -26,9 +26,7 @@ function activate(context) {
 				return undefined;
 			}
 
-			const prefix = lineText.substr(0, parenPos);
-
-			console.log(prefix);
+			const prefix = lineText.substr(0, parenPos).trimLeft();
 
 			switch (prefix) {
 				case 'UPROPERTY':

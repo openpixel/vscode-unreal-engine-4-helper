@@ -1,6 +1,6 @@
 const vscode = require('vscode');
 
-exports = function (specifiers) {
+exports.build = function (specifiers) {
     let completionItems = [];
 
     specifiers.forEach(specifier => {
