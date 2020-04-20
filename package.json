@@ -4,6 +4,11 @@
 	"description": "Helpers for working Unreal Engine 4 C++",
 	"version": "0.0.1",
 	"preview": true,
+	"publisher": "openpixel",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/openpixel/vscode-unreal-engine-4-helper.git"
+	},
 	"engines": {
 		"vscode": "^1.44.0"
 	},
