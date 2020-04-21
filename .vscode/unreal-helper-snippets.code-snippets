@@ -1,0 +1,16 @@
+{
+	// Helper to simplify creating new specifiers quickly
+	"Specifier": {
+		"scope": "javascript",
+		"prefix": "spc",
+		"body": [
+			"{",
+			"\tlabel: '$1',",
+			"\tdoc: '$2',",
+			"\tinsertText: $3,",
+			"},",
+			"$4",
+		],
+		"description": "A blank specifier",
+	}
+}

@@ -5,6 +5,8 @@ const build = require('./src/builder').build;
 const propertySpecifiers = require('./src/property').specifiers;
 const structSpecifiers = require('./src/struct').specifiers;
 const interfaceSpecifiers = require('./src/interface').specifiers;
+const functionSpecifiers = require('./src/function').specifiers;
+const classSpecifiers = require('./src/class').specifiers;
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
@@ -16,6 +18,8 @@ function activate(context) {
 	const propertyCompletionItems = build(propertySpecifiers);
 	const structCompletionItems = build(structSpecifiers);
 	const interfaceCompletionItems = build(interfaceSpecifiers);
+	const functionCompletionItems = build(functionSpecifiers);
+	const classCompletionItems = build(classSpecifiers);
 
 	let unrealProvider = vscode.languages.registerCompletionItemProvider('cpp', {
 		provideCompletionItems(document, position) {
@@ -35,6 +39,10 @@ function activate(context) {
 					return structCompletionItems;
 				case 'UINTERFACE':
 					return interfaceCompletionItems;
+				case 'UFUNCTION':
+					return functionCompletionItems;
+				case 'UCLASS':
+					return classCompletionItems;
 				default:
 					return undefined;
 			}

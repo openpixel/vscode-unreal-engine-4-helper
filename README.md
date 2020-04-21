@@ -10,7 +10,7 @@ Listed below are the set of supported or planned features. Supported features ha
     - [x] UPROPERTY Specifiers
     - [x] USTRUCT Specifiers
     - [x] UINTERFACE Specifiers
-    - [ ] UCLASS Specifiers
+    - [x] UCLASS Specifiers
     - [ ] UENUM Specifiers
-    - [ ] UFUNCTION Specifiers
+    - [x] UFUNCTION Specifiers
     - [ ] Metadata Specifiers

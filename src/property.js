@@ -41,7 +41,7 @@ exports.specifiers = [
     },
     {
         label: 'Category',
-        doc: new vscode.MarkdownString('Specifies the category of the property when displayed in Blueprint editing tools. Define nested categories using the `\`` operator.'),
+        doc: new vscode.MarkdownString('Specifies the category of the property when displayed in Blueprint editing tools. Define nested categories using the `|` operator.'),
         insertText: new vscode.SnippetString('Category="${1:TopCategory}"'),
     },
     {

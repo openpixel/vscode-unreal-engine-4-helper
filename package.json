@@ -3,7 +3,7 @@
 	"displayName": "Unreal Engine 4 Helper",
 	"description": "Helpers for working Unreal Engine 4 C++",
 	"version": "0.0.2",
-	"preview": true,
+	"preview": false,
 	"publisher": "openpixel",
 	"repository": {
 		"type": "git",
