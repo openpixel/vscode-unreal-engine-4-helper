@@ -20,8 +20,7 @@
 	],
 	"keywords": [
 		"Unreal Engine",
-		"UE4",
-		""
+		"UE4"
 	],
 	"activationEvents": [
 		"onLanguage:cpp"
