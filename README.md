@@ -14,3 +14,4 @@ Listed below are the set of supported or planned features. Supported features ha
     - [ ] UENUM Specifiers
     - [x] UFUNCTION Specifiers
     - [ ] Metadata Specifiers
+    - [ ] UPARAM Specifiers

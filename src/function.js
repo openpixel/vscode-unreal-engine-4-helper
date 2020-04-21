@@ -38,9 +38,13 @@ exports.specifiers = [
         doc: new vscode.MarkdownString('This function will be used as the mutator for a Blueprint-exposed property. This specifier implies BlueprintCallable.'),
     },
     {
+        label: 'CallInEditor',
+        doc: 'This function can be called in the editor on selected instances via a button in the Details panel.',
+    },
+    {
         label: 'Category',
         doc: new vscode.MarkdownString('Specifies the category of the function when displayed in Blueprint editing tools. Define nested categories using the `|` operator.'),
-        insertText: new vscode.SnippetString('Category="${1:TopCategory}"'),
+        insertText: new vscode.SnippetString('Category="${1:TopCategory|SubCategory}"'),
     },
     {
         label: 'Client',
