@@ -15,3 +15,10 @@ exports.specifiers = [
         doc: 'Causes only the class\'s type information to be exported for use by other modules.The class can be cast to, but the functions of the class cannot be called(with the exception of inline methods).This improves compile times by not exporting everything for classes that do not need all of their functions accessible in other modules.',
     },
 ];
+
+exports.metadata = [
+    {
+        label: 'CannotImplementInterfaceInBlueprint',
+        doc: new vscode.MarkdownString('This Interface cannot be implemented by a Blueprint (for example, if it has only non-exposed C++ member methods). Any Interfaces that define a function that isn\'t a [`BlueprintImplementableEvent` or `BlueprintNativeEvent`](https://docs.unrealengine.com/en-US/Programming/UnrealArchitecture/Reference/Metadata/../Functions/Specifiers/index.html) must be declared as `CannotImplementInterfaceInBlueprint`.'),
+    },
+];

@@ -155,3 +155,86 @@ exports.specifiers = [
         insertText: new vscode.SnippetString('Within=${1:OuterClassName}'),
     },
 ];
+
+exports.metadata = [
+    {
+        label: 'BlueprintSpawnableComponent',
+        doc: 'If present, the component Class can be spawned by a Blueprint.',
+    },
+    {
+        label: 'BlueprintThreadSafe',
+        doc: 'Only valid on Blueprint function libraries. This specifier marks the functions in this class as callable on non-game threads in animation Blueprints.',
+    },
+    {
+        label: 'ChildCannotTick',
+        doc: new vscode.MarkdownString('Used for Actor and component Classes. If the native Class cannot tick, Blueprint-generated Classes based this Actor or component can never tick, even if `bCanBlueprintsTickByDefault` is true.'),
+    },
+    {
+        label: 'ChildCanTick',
+        doc: new vscode.MarkdownString('Used for Actor and component Classes. If the native Class cannot tick, Blueprint-generated Classes based this Actor or component can have the `bCanEverTick` flag overridden, even if `bCanBlueprintsTickByDefault` is false.'),
+    },
+    {
+        label: 'DeprecatedNode',
+        doc: 'For behavior tree nodes, indicates that the Class is deprecated and will display a warning when compiled.',
+    },
+    {
+        label: 'DeprecationMessage',
+        insertText: new vscode.SnippetString('DeprecationMessage=${1:"Message Text"}'),
+        doc: 'If the class is deprecated, this message will be added to the standard deprecation warning when trying to compile a Blueprint that uses it.',
+    },
+    {
+        label: 'DisplayName',
+        insertText: new vscode.SnippetString('DisplayName=${1:"Blueprint Node Name"}'),
+        doc: 'The name of this node in a Blueprint will be replaced with the value provided here, instead of the code-generated name.',
+    },
+    {
+        label: 'DontUseGenericSpawnObject',
+        doc: 'Do not spawn an Object of the Class using Generic Create Object node in Blueprint. This specifier makes sense only for Bluprint-type classes that are neither Actors nor ActorComponents.',
+    },
+    {
+        label: 'ExposedAsyncProxy',
+        doc: 'Expose a proxy Object of this Class in Async Task nodes.',
+    },
+    {
+        label: 'IgnoreCategoryKeywordsInSubclasses',
+        doc: new vscode.MarkdownString('Used to make the first subclass of a Class ignore all inherited `ShowCategories` and `HideCategories` specifiers.'),
+    },
+    {
+        label: 'IsBlueprintBase',
+        insertText: new vscode.SnippetString('IsBlueprintBase=${1:"true/false"}'),
+        doc: new vscode.MarkdownString('States that this Class is (or is not) an acceptable base Class for creating Blueprints, similar to the `UCLASS` specifiers, `Blueprintable` or `NotBlueprintable`.'),
+    },
+    {
+        label: 'KismetHideOverrides',
+        insertText: new vscode.SnippetString('KismetHideOverrides=${1:"Event1, Event2, .."}'),
+        doc: 'List of Blueprint events that are not allowed to be overridden.',
+    },
+    {
+        label: 'ProhibitedInterfaces',
+        insertText: new vscode.SnippetString('ProhibitedInterfaces=${1:"Interface1, Interface2, .."}'),
+        doc: 'Lists Interfaces that are not compatible with the Class.',
+    },
+    {
+        label: 'RestrictedToClasses',
+        insertText: new vscode.SnippetString('RestrictedToClasses=${1:"Class1, Class2, .."}'),
+        doc: 'Used by Blueprint function library classes to restrict usage to the classes named in the list.',
+    },
+    {
+        label: 'ShortToolTip',
+        insertText: new vscode.SnippetString('ShortToolTip=${1:"Short tooltip"}'),
+        doc: 'A short tooltip that is used in some contexts where the full tooltip might be overwhelming, such as the Parent Class Picker dialog.',
+    },
+    {
+        label: 'ShowWorldContextPin',
+        doc: 'Indicates that Blueprint nodes placed in graphs owned by this Class must show their World context pins, even if they are normally hidden, because Objects of this Class cannot be used as World context.',
+    },
+    {
+        label: 'UsesHierarchy',
+        doc: 'Indicates the Class uses hierarchical data. Used to instantiate hierarchical editing features in Details panels.',
+    },
+    {
+        label: 'ToolTip',
+        insertText: new vscode.SnippetString('ToolTip=${1:"Hand-written tooltip"}'),
+        doc: 'Overrides the automatically generated tooltip from code comments.',
+    },
+];
