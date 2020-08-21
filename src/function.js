@@ -91,3 +91,145 @@ exports.specifiers = [
         doc: new vscode.MarkdownString('Declares an additional function named the same as the main function, but with `_Validate` added to the end. This function takes the same parameters, and returns a `bool` to indicate whether or not the call to the main function should proceed.'),
     },
 ];
+
+exports.metadata = [
+    {
+        label: 'AdvancedDisplay',
+        insertText: new vscode.SnippetString('AdvancedDisplay=${1:"Parameter1, Parameter2, .."}'),
+        doc: 'The comma-separated list of parameters will show up as advanced pins (requiring UI expansion).',
+    },
+    {
+        label: 'AdvancedDisplay=N',
+        insertText: new vscode.SnippetString('AdvancedDisplay=${1:N}'),
+        doc: new vscode.MarkdownString('Replace `N` with a number, and all parameters after the Nth will show up as advanced pins (requiring UI expansion). For example, `AdvancedDisplay=2` will mark all but the first two parameters as advanced).'),
+    },
+    {
+        label: 'ArrayParm',
+        insertText: new vscode.SnippetString('ArrayParm=${1:"Parameter1, Parameter2, .."}'),
+        doc: new vscode.MarkdownString('Indicates that a `BlueprintCallable` function should use a Call Array Function node and that the listed parameters should be treated as wild card array properties.'),
+    },
+    {
+        label: 'ArrayTypeDependentParams',
+        insertText: new vscode.SnippetString('ArrayTypeDependentParams=${1:"Parameter"}'),
+        doc: new vscode.MarkdownString('When `ArrayParm` is used, this specifier indicates one parameter which will determine the types of all parameters in the `ArrayParm` list.'),
+    },
+    {
+        label: 'AutoCreateRefTerm',
+        insertText: new vscode.SnippetString('AutoCreateRefTerm=${1:"Parameter1, Parameter2, .."}'),
+        doc: 'The listed parameters, although passed by reference, will have an automatically created default if their pins are left disconnected. This is a convenience feature for Blueprints, often used on array pins.',
+    },
+    {
+        label: 'BlueprintAutocast',
+        doc: new vscode.MarkdownString('Used only by static `BlueprintPure` functions from a Blueprint function library. A cast node will be automatically added for the return type and the type of the first parameter of the function.'),
+    },
+    {
+        label: 'BlueprintInternalUseOnly',
+        doc: 'This function is an internal implementation detail, used to implement another function or node. It is never directly exposed in a Blueprint graph.',
+    },
+    {
+        label: 'BlueprintProtected',
+        doc: 'This function can only be called on the owning Object in a Blueprint. It cannot be called on another instance.',
+    },
+    {
+        label: 'CallableWithoutWorldContext',
+        doc: new vscode.MarkdownString('Used for `BlueprintCallable` functions that have a `WorldContext` pin to indicate that the function can be called even if its Class does not implement the `GetWorld` function.'),
+    },
+    {
+        label: 'CommutativeAssociativeBinaryOperator',
+        doc: new vscode.MarkdownString('Indicates that a `BlueprintCallable` function should use the Commutative Associative Binary node. This node lacks pin names, but features an **Add Pin** button that creates additional input pins.'),
+    },
+    {
+        label: 'CompactNodeTitle',
+        insertText: new vscode.SnippetString('CompactNodeTitle=${1:"Name"}'),
+        doc: new vscode.MarkdownString('Indicates that a `BlueprintCallable` function should display in the compact display mode, and provides the name to display in that mode.'),
+    },
+    {
+        label: 'CustomStructureParam',
+        insertText: new vscode.SnippetString('CustomStructureParam=${1:"Parameter1, Parameter2, .."}'),
+        doc: new vscode.MarkdownString('The listed parameters are all treated as wildcards. This specifier requires the `UFUNCTION`-level specifier, `CustomThunk`, which will require the user to provide a custom `exec` function. In this function, the parameter types can be checked and the appropriate function calls can be made based on those parameter types. The base `UFUNCTION` should never be called, and should assert or log an error if it is. To declare a custom `exec` function, use the syntax `DECLARE_FUNCTION(execMyFunctionName)` where `MyFunctionName` is the name of the original function.'),
+    },
+    {
+        label: 'DefaultToSelf',
+        doc: new vscode.MarkdownString('For `BlueprintCallable` functions, this indicates that the Object property\'s named default value should be the self context of the node.'),
+    },
+    {
+        label: 'DeprecatedFunction',
+        doc: new vscode.MarkdownString('Any Blueprint references to this function will cause compilation warnings telling the user that the function is deprecated. You can add to the deprecation warning message (for example, to provide instructions on replacing the deprecated function) using the `DeprecationMessage` metadata specifier.'),
+    },
+    {
+        label: 'DeprecationMessage',
+        doc: 'If the function is deprecated, this message will be added to the standard deprecation warning when trying to compile a Blueprint that uses it.',
+    },
+    {
+        label: 'DevelopmentOnly',
+        doc: new vscode.MarkdownString('Functions marked as `DevelopmentOnly` will only run in Development mode. This is useful for functionality like debug output, which is expected not to exist in shipped products.'),
+    },
+    {
+        label: 'DisplayName',
+        insertText: new vscode.SnippetString('DisplayName=${1:"Blueprint Node Name"}'),
+        doc: 'The name of this node in a Blueprint will be replaced with the value provided here, instead of the code-generated name.',
+    },
+    {
+        label: 'ExpandEnumAsExecs',
+        insertText: new vscode.SnippetString('ExpandEnumAsExecs=${1:"Parameter"}'),
+        doc: new vscode.MarkdownString('For `BlueprintCallable` functions, this indicates that one input execution pin should be created for each entry in the `enum` used by the parameter. That the named parameter must be of an enumerated type recognized by the Engine via the `UENUM` tag.'),
+    },
+    {
+        label: 'HidePin',
+        insertText: new vscode.SnippetString('HidePin=${1:"Parameter"}'),
+        doc: new vscode.MarkdownString('For `BlueprintCallable` functions, this indicates that the parameter pin should be hidden from the user\'s view. Note that only one parameter pin per function can be hidden in this manner.'),
+    },
+    {
+        label: 'HideSelfPin',
+        doc: new vscode.MarkdownString('Hides the self pin, which is used to indicate the object on which the function is being called. The self pin is automatically hidden on `BlueprintPure` functions that are compatible with the calling Blueprint\'s Class. This is generally used with the `DefaultToSelf` specifier.'),
+    },
+    {
+        label: 'InternalUseParam',
+        insertText: new vscode.SnippetString('InternalUseParam=${1:"Parameter"}'),
+        doc: new vscode.MarkdownString('Similar to `HidePin`, this hides the named parameter\'s pin from the user\'s view, and can only be used for one parameter per function.'),
+    },
+    {
+        label: 'KeyWords',
+        insertText: new vscode.SnippetString('KeyWords=${1:"Set Of Keywords"}'),
+        doc: 'Specifies a set of keywords that can be used when searching for this function, such as when placing a node to call the function in a Blueprint Graph.',
+    },
+    {
+        label: 'Latent',
+        doc: new vscode.MarkdownString('Indicates a latent action. Latent actions have one parameter of type `FLatentActionInfo`, and this parameter is named by the `LatentInfo` specifier.'),
+    },
+    {
+        label: 'LatentInfo',
+        insertText: new vscode.SnippetString('LatentInfo=${1:"Parameter"}'),
+        doc: new vscode.MarkdownString('For Latent `BlueprintCallable` functions indicates which parameter is the LatentInfo parameter.'),
+    },
+    {
+        label: 'MaterialParameterCollectionFunction',
+        doc: new vscode.MarkdownString('For `BlueprintCallable` functions, indicates that the material override node should be used.'),
+    },
+    {
+        label: 'NativeBreakFunc',
+        doc: new vscode.MarkdownString('For `BlueprintCallable` functions, indicates that the function should be displayed the same way as a standard Break Struct node.'),
+    },
+    {
+        label: 'NotBlueprintThreadSafe',
+        doc: new vscode.MarkdownString('Only valid in Blueprint function libraries. This function will be treated as an exception to the owning Class\'s general `BlueprintThreadSafe` metadata.'),
+    },
+    {
+        label: 'ShortToolTip',
+        insertText: new vscode.SnippetString('ShortToolTip=${1:"Short tooltip"}'),
+        doc: 'A short tooltip that is used in some contexts where the full tooltip might be overwhelming, such as the Parent Class Picker dialog.',
+    },
+    {
+        label: 'ToolTip="Hand-written tooltip',
+        doc: 'Overrides the automatically generated tooltip from code comments.',
+    },
+    {
+        label: 'UnsafeDuringActorConstruction',
+        doc: 'This function is not safe to call during Actor construction.',
+    },
+    {
+        label: 'WorldContext',
+        insertText: new vscode.SnippetString('WorldContext=${1:"Parameter"}'),
+        doc: new vscode.MarkdownString('Used by `BlueprintCallable` functions to indicate which parameter determines the World that the operation is occurring within.'),
+    },
+];
