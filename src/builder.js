@@ -4,6 +4,9 @@ exports.build = function (specifiers) {
     let completionItems = [];
 
     specifiers.forEach(specifier => {
+        if (!specifier.label) {
+            return;
+        }
         let item = new vscode.CompletionItem(specifier.label);
         if (specifier.doc) {
             item.documentation = specifier.doc;
