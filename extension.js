@@ -2,6 +2,8 @@
 // Import the module and reference it with the alias vscode in your code below
 const vscode = require('vscode');
 const build = require('./src/builder').build;
+const run = require('./src/run').run;
+
 const propertySpecifiers = require('./src/property').specifiers;
 const structSpecifiers = require('./src/struct').specifiers;
 const interfaceSpecifiers = require('./src/interface').specifiers;
@@ -35,25 +37,8 @@ function activate(context) {
 
 	let unrealProvider = vscode.languages.registerCompletionItemProvider('cpp', {
 		provideCompletionItems(document, position) {
-			const lineText = document.lineAt(position).text;
-			const parenPos = lineText.lastIndexOf('(');
-
-			if (parenPos === -1) {
-				return undefined;
-			}
-
-			let prefix = lineText.substr(0, parenPos).trimLeft();
-
-			const otherParenPos = prefix.lastIndexOf('(');
-			let isMeta = false;
-			if (otherParenPos !== -1) {
-				// We have another paren, so determine if we are nested
-				const innerPrefix = prefix.substr(otherParenPos+1, parenPos).trimLeft();
-				if (innerPrefix.split(')').length === 1) {
-					isMeta = innerPrefix === 'meta='; // we are in a meta call
-					prefix = lineText.substr(0, otherParenPos).trimLeft();
-				}
-			}
+			const lineText = document.lineAt(position).text.substr(0, position.character);
+			const [prefix, isMeta] = run(lineText);
 
 			switch (prefix) {
 				case 'UPROPERTY':
