@@ -1,27 +1,14 @@
-let specMatchers = [
-    /^(UPROPERTY)\(/,
-    /^(UCLASS)\(/,
-    /^(USTRUCT)\(/,
-    /^(UPROPERTY)\(/,
-    /^(UINTERFACE)\(/,
-    /^(UFUNCTION)\(/,
-];
-let metaReg = RegExp(/meta\=\(\s*$/, 'gi');
+let specRe = /^(UPROPERTY|UCLASS|USTRUCT|UPROPERTY|UINTERFACE|UFUNCTION)\(/i;
+let metaRe = /meta\=\((?:\w+(?:=".*")?,? *)*$/;
 
 exports.run = function(lineText='') {
-    for (const el of specMatchers) {
-        let re = RegExp(el, 'gi');
-
-        let result = re.exec(lineText);
-        if (result === null) {
-            continue;
-        }
-
-        let isMeta = metaReg.test(lineText);
-        let prefix = result[1];
-
-        return [prefix, isMeta];
+    let result = lineText.match(specRe);
+    if (result === null || result.length < 2) {
+        return ['', false];
     }
 
-    return ['', false];
+    let isMeta = lineText.match(metaRe) !== null;
+    let prefix = result[1];
+
+    return [prefix, isMeta];
 }
