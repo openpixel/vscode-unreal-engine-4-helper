@@ -1,3 +1,5 @@
+![](https://github.com/openpixel/vscode-unreal-engine-4-helper/workflows/Node.js/badge.svg)
+
 # Unreal Engine 4 Helper
 
 Unreal Engine 4 Helper provides support for various aspects of Unreal Engine 4 Development within Visual Studio Code.

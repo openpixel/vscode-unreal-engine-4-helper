@@ -5,9 +5,13 @@
 	"version": "0.2.2",
 	"preview": false,
 	"publisher": "openpixel",
+	"license": "GPL-3.0",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/openpixel/vscode-unreal-engine-4-helper.git"
+	},
+	"bugs": {
+		"url": "https://github.com/openpixel/vscode-unreal-engine-4-helper/issues"
 	},
 	"engines": {
 		"vscode": "^1.44.0"
@@ -16,7 +20,7 @@
 		"name": "cam-stitt"
 	},
 	"categories": [
-		"Other"
+		"Programming Languages", "Other"
 	],
 	"keywords": [
 		"Unreal Engine",
@@ -44,5 +48,10 @@
 	},
 	"extensionDependencies": [
 		"ms-vscode.cpptools"
-	]
+	],
+	"icon": "images/unreal-engine.png",
+	"galleryBanner": {
+		"color": "#ffffff",
+		"theme": "dark"
+	}
 }
