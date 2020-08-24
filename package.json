@@ -53,6 +53,6 @@
 	"icon": "images/unreal-engine.png",
 	"galleryBanner": {
 		"color": "#ffffff",
-		"theme": "dark"
+		"theme": "light"
 	}
 }
