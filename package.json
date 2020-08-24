@@ -2,7 +2,7 @@
 	"name": "unreal-engine-4-helper",
 	"displayName": "Unreal Engine 4 Helper",
 	"description": "Helpers for working Unreal Engine 4 C++",
-	"version": "0.2.2",
+	"version": "0.3.0",
 	"preview": false,
 	"publisher": "openpixel",
 	"license": "GPL-3.0",
@@ -20,7 +20,8 @@
 		"name": "cam-stitt"
 	},
 	"categories": [
-		"Programming Languages", "Other"
+		"Programming Languages",
+		"Other"
 	],
 	"keywords": [
 		"Unreal Engine",
