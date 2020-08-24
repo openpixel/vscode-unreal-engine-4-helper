@@ -1,9 +1,18 @@
-let specRe = /^(UPROPERTY|UCLASS|USTRUCT|UPROPERTY|UINTERFACE|UFUNCTION)\(/i;
-let metaRe = /meta\=\((?:\w+(?:=".*")?,? *)*$/;
+let specRe = [
+    /^(UPROPERTY|UCLASS|USTRUCT|UPROPERTY|UINTERFACE|UFUNCTION|UENUM)\(/i,
+    /(UMETA)\((?:\w+(?:=".*")?,? *)*$/i,
+];
+let metaRe = /Meta\=\((?:\w+(?:=".*")?,? *)*$/i;
 
 exports.run = function(lineText='') {
-    let result = lineText.match(specRe);
-    if (result === null || result.length < 2) {
+    let result = null;
+    for (const re of specRe) {
+        result = lineText.match(re);
+        if (result !== null) {
+            break;
+        }
+    }
+    if (result === null) {
         return ['', false];
     }
 

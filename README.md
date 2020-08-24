@@ -13,7 +13,7 @@ Listed below are the set of supported or planned features. Supported features ha
     - [x] USTRUCT Specifiers
     - [x] UINTERFACE Specifiers
     - [x] UCLASS Specifiers
-    - [ ] UENUM Specifiers
+    - [x] UENUM Specifiers
     - [x] UFUNCTION Specifiers
     - [x] Metadata Specifiers
     - [ ] UPARAM Specifiers

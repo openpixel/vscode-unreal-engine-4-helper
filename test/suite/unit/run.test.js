@@ -51,6 +51,12 @@ suite('run unit test suite', () => {
           prefix: 'UFUNCTION',
           isMeta: true,
       },
+      {
+          desc: 'UMETA specifier',
+          lineText: 'UMETA(arg1, arg2',
+          prefix: 'UMETA',
+          isMeta: false,
+      }
   ];
   testCases.forEach(testCase => {
     test(testCase.desc, () => {

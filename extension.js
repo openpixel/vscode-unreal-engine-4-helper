@@ -15,6 +15,8 @@ const structMetadata = require('./src/struct').metadata;
 const interfaceMetadata = require('./src/interface').metadata;
 const functionMetadata = require('./src/function').metadata;
 const classMetadata = require('./src/class').metadata;
+const enumMetadata = require('./src/enum').metadata;
+const metaMetdata = require('./src/meta').metadata;
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
@@ -34,6 +36,8 @@ function activate(context) {
 	const functionMetadataCompletionItems = build(functionMetadata);
 	const classCompletionItems = build(classSpecifiers);
 	const classMetadataCompletionItems = build(classMetadata);
+	const enumMetadataCompletionItems = build(enumMetadata);
+	const metaMetadataCompletionItems = build(metaMetdata);
 
 	let unrealProvider = vscode.languages.registerCompletionItemProvider('cpp', {
 		provideCompletionItems(document, position) {
@@ -51,6 +55,10 @@ function activate(context) {
 					return isMeta ? functionMetadataCompletionItems : functionCompletionItems;
 				case 'UCLASS':
 					return isMeta ? classMetadataCompletionItems : classCompletionItems;
+				case 'UENUM':
+					return isMeta ? enumMetadataCompletionItems : undefined;
+				case 'UMETA':
+					return metaMetadataCompletionItems;
 				default:
 					return undefined;
 			}
