@@ -56,7 +56,13 @@ suite('run unit test suite', () => {
           lineText: 'UMETA(arg1, arg2',
           prefix: 'UMETA',
           isMeta: false,
-      }
+      },
+      {
+          desc: 'Specifier with whitespace',
+          lineText: '    UPROPERTY(',
+          prefix: 'UPROPERTY',
+          isMeta: false,
+      },
   ];
   testCases.forEach(testCase => {
     test(testCase.desc, () => {

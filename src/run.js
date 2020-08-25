@@ -1,5 +1,5 @@
 let specRe = [
-    /^(UPROPERTY|UCLASS|USTRUCT|UPROPERTY|UINTERFACE|UFUNCTION|UENUM)\(/i,
+    /^\s*(UPROPERTY|UCLASS|USTRUCT|UPROPERTY|UINTERFACE|UFUNCTION|UENUM)\(/i,
     /(UMETA)\((?:\w+(?:=".*")?,? *)*$/i,
 ];
 let metaRe = /Meta\=\((?:\w+(?:=".*")?,? *)*$/i;
